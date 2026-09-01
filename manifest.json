@@ -1,13 +1,13 @@
 {
-  "name": "Game Demo",
-  "short_name": "Game",
+  "name": "HealthNexus",
+  "short_name": "HealthNexus",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/feathericons/feather/master/icons/play.svg",
+      "src": "https://raw.githubusercontent.com/feathericons/feather/master/icons/activity.svg",
       "sizes": "192x192 512x512",
       "type": "image/svg+xml",
       "purpose": "any"
