@@ -33,9 +33,9 @@
         .chart-bar { transition: all 0.3s ease; border-top-left-radius: 6px; border-top-right-radius: 6px; }
         .chart-bar:hover { filter: brightness(1.05); transform: scaleY(1.03); transform-origin: bottom; box-shadow: 0 -4px 12px rgba(0,0,0,0.1); }
 
-        /* FIXED: Filter Buttons State */
+        /* Filter Buttons State */
         .filter-active { background-color: #00529C; color: white; font-weight: bold; border-color: #00529C; }
-        .filter-active:hover { filter: brightness(1.15); } /* Mencegah tombol hilang saat di-hover */
+        .filter-active:hover { filter: brightness(1.15); } 
         .filter-inactive { background-color: white; color: #475569; font-weight: 600; border-color: #e2e8f0; }
         .filter-inactive:hover { background-color: #f8fafc; }
     </style>
@@ -110,7 +110,7 @@
             <div id="tab-dashboard" class="fade-in space-y-5 md:space-y-6">
                 <!-- Highlight Widgets -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-                    <!-- CASA (FIXED BLUE BACKGROUND) -->
+                    <!-- CASA -->
                     <div class="bg-blue-900 p-5 rounded-2xl shadow-md relative overflow-hidden flex flex-col justify-between">
                         <i class="fas fa-wallet absolute -right-4 -bottom-4 text-8xl text-white opacity-10"></i>
                         <div>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- B2C Care Pay (FIXED EMPTY SPACE) -->
+                    <!-- B2C Care Pay -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-md flex flex-col justify-between relative overflow-hidden">
                         <div class="flex justify-between items-start">
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">myBCA 0% Care-Pay</span>
@@ -181,7 +181,7 @@
                             <button class="text-[10px] bg-slate-50 text-slate-600 font-bold px-3 py-1.5 rounded-lg hover:bg-slate-100 transition border border-slate-200">7 Hari Terakhir <i class="fas fa-chevron-down ml-1"></i></button>
                         </div>
                         
-                        <!-- Upgraded Chart UI with better gradients and contrast -->
+                        <!-- Upgraded Chart UI -->
                         <div class="flex items-end justify-between space-x-2 md:space-x-4 h-40 md:h-52 border-b border-slate-100 pb-2 px-1">
                             <div class="w-full h-[40%] chart-bar bg-gradient-to-t from-blue-100 to-blue-50 border border-blue-200 relative group">
                                 <div class="absolute -top-7 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition shadow-lg z-10 whitespace-nowrap">Rp40M</div>
@@ -253,15 +253,13 @@
 
             <!-- TAB 2: E-PROCUREMENT (B2B) -->
             <div id="tab-procurement" class="hidden fade-in space-y-5 md:space-y-6">
-                
-                <!-- Search & Filters Category -->
+                <!-- Search & Filters -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div class="relative flex-1 max-w-md">
                         <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
                         <input type="text" id="searchInput" placeholder="Cari alat medis, suplai, atau mitra..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-bca-blue focus:ring-1 focus:ring-bca-blue transition" onkeyup="filterProducts()">
                     </div>
                     <div class="flex items-center space-x-2 overflow-x-auto pb-1 md:pb-0">
-                        <!-- DI SINI FIX TOMBOL FILTER MENGHILANG -->
                         <button onclick="setCategoryFilter('all')" id="filter-all" class="px-4 py-1.5 filter-active text-xs rounded-full whitespace-nowrap shadow-sm border transition-colors">Semua</button>
                         <button onclick="setCategoryFilter('equipment')" id="filter-equipment" class="px-4 py-1.5 filter-inactive text-xs rounded-full whitespace-nowrap shadow-sm border transition-colors">Medical Equipment</button>
                         <button onclick="setCategoryFilter('supply')" id="filter-supply" class="px-4 py-1.5 filter-inactive text-xs rounded-full whitespace-nowrap shadow-sm border transition-colors">Consumables (Supply)</button>
@@ -278,127 +276,129 @@
                     </div>
                 </div>
 
-                <!-- Product Grid Container -->
                 <div id="product-grid" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
-                    <!-- Products will be injected here via JavaScript -->
+                    <!-- Injected via JS -->
                 </div>
             </div>
 
-            <!-- TAB 3: PAYROLL SPESIALIS -->
-            <div id="tab-payroll" class="hidden fade-in space-y-5 md:space-y-6 max-w-4xl mx-auto">
-                <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-md">
+            <!-- TAB 3: PAYROLL SPESIALIS (INI YANG SEMPAT HILANG) -->
+            <div id="tab-payroll" class="hidden fade-in space-y-6 max-w-5xl mx-auto pb-8">
+                <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm relative">
+                    
+                    <!-- Header Section -->
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                         <div>
-                            <h2 class="font-bold text-slate-800 text-xl">Payroll & PPh 21 Dokter Spesialis</h2>
-                            <p class="text-xs text-slate-500 mt-1">Sistem bagi hasil otomatis via API SIMRS. Terintegrasi dengan potongan pajak progresif tenaga ahli medis.</p>
+                            <h2 class="font-extrabold text-slate-800 text-2xl tracking-tight">Payroll & PPh 21 Dokter Spesialis</h2>
+                            <p class="text-sm text-slate-500 mt-1">Sistem bagi hasil otomatis via API SIMRS. Terintegrasi dengan potongan pajak Tenaga Ahli (DPP 50%).</p>
                         </div>
                         <div class="flex space-x-2 shrink-0">
-                            <span class="bg-blue-50 text-bca-blue text-[10px] font-bold px-2.5 py-1.5 rounded-md border border-blue-200 flex items-center"><i class="fas fa-link mr-1"></i> SIMRS API</span>
-                            <span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2.5 py-1.5 rounded-md border border-slate-200 flex items-center"><i class="fas fa-file-invoice mr-1"></i> Auto-PPh 21</span>
+                            <button class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-2 rounded-lg border border-blue-200 hover:bg-blue-100 transition flex items-center">
+                                <i class="fas fa-link mr-1.5"></i> SIMRS API
+                            </button>
+                            <button class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition flex items-center">
+                                <i class="fas fa-file-invoice mr-1.5"></i> Auto-PPh 21
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Summary Cards -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <!-- Summary Dashboard -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 bg-slate-50/80 p-5 rounded-xl border border-slate-100">
                         <div>
-                            <p class="text-[10px] text-slate-500 font-semibold uppercase">Total Fee Bruto</p>
-                            <p class="text-sm font-bold text-slate-800 mt-0.5">Rp146.400.000</p>
+                            <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Total Omzet Tindakan</p>
+                            <p class="text-xl font-extrabold text-slate-800 mt-1">Rp146.400.000</p>
                         </div>
                         <div>
-                            <p class="text-[10px] text-red-500 font-semibold uppercase">Total PPh 21 Disetor</p>
-                            <p class="text-sm font-bold text-red-600 mt-0.5">-Rp23.820.000</p>
+                            <p class="text-[11px] text-red-500 font-bold uppercase tracking-wider">Total PPh 21 Disetor</p>
+                            <p class="text-xl font-extrabold text-red-600 mt-1">-Rp8.296.500</p>
                         </div>
                         <div>
-                            <p class="text-[10px] text-slate-500 font-semibold uppercase">Klinik Retention (30%)</p>
-                            <p class="text-sm font-bold text-slate-800 mt-0.5">Rp35.780.000</p>
+                            <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Klinik Retention (Bagi Hasil)</p>
+                            <p class="text-xl font-extrabold text-slate-800 mt-1">Rp35.780.000</p>
                         </div>
                         <div>
-                            <p class="text-[10px] text-bca-blue font-semibold uppercase">Net Disbursement</p>
-                            <p class="text-sm font-bold text-bca-blue mt-0.5">Rp86.800.000</p>
+                            <p class="text-[11px] text-blue-600 font-bold uppercase tracking-wider">Net Disbursement (THP)</p>
+                            <p class="text-xl font-extrabold text-blue-600 mt-1">Rp102.323.500</p>
                         </div>
                     </div>
 
-                    <!-- Detail Doctors List -->
+                    <!-- Doctor List -->
                     <div class="space-y-4">
-                        <div class="p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-300 transition shadow-sm">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                        <!-- Doctor 1: Sarah -->
+                        <div onclick="openPayrollModal('SA')" class="p-5 md:p-6 bg-white border border-slate-200 rounded-xl hover:border-bca-blue hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                 <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 bg-blue-50 border border-blue-100 text-bca-blue rounded-full flex items-center justify-center font-extrabold text-base shadow-sm shrink-0">SA</div>
+                                    <div class="w-14 h-14 bg-blue-100 border border-blue-200 text-blue-700 rounded-full flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-blue-700 group-hover:text-white transition-colors shadow-sm">SA</div>
                                     <div>
-                                        <p class="text-sm font-bold text-slate-800">dr. Sarah Amalia, Sp.DVE</p>
-                                        <div class="flex items-center space-x-2 mt-1">
-                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">NPWP: 89.231.***</span>
-                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">BCA: 8821****92</span>
+                                        <h3 class="text-base font-bold text-slate-800 group-hover:text-bca-blue transition-colors">dr. Sarah Amalia, Sp.DVE</h3>
+                                        <div class="flex items-center space-x-2 mt-1.5">
+                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-1 rounded font-medium border border-slate-200">NPWP: 89.231.***</span>
+                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-1 rounded font-medium border border-slate-200">BCA: 8821****92</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-left md:text-right w-full md:w-auto">
-                                    <p class="text-xs text-slate-500">Net Transfer (Take Home Pay)</p>
-                                    <p class="text-lg font-extrabold text-emerald-600">Rp38.200.000</p>
+                                <div class="text-left md:text-right w-full md:w-auto mt-2 md:mt-0">
+                                    <p class="text-[11px] text-slate-500 font-medium mb-0.5">Net Transfer (Take Home Pay)</p>
+                                    <p class="text-2xl font-black text-emerald-600 tracking-tight">Rp42.087.500</p>
                                 </div>
                             </div>
-                            <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                            <div class="mt-5 pt-4 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
                                 <div>
-                                    <p class="text-slate-500 mb-1">Sumber Tindakan</p>
-                                    <p class="font-medium">24 Pasien (Pico Laser, Botox)</p>
-                                    <p class="font-bold mt-0.5">Gross: Rp65.000.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Sumber Tindakan</p>
+                                    <p class="font-extrabold text-slate-800">Gross: Rp65.000.000</p>
                                 </div>
                                 <div>
-                                    <p class="text-slate-500 mb-1">Skema Bagi Hasil (Profit Share)</p>
-                                    <p class="font-medium">Dokter 70% : Klinik 30%</p>
-                                    <p class="font-bold mt-0.5">Fee Dokter: Rp45.500.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Bagi Hasil (Dokter 70%)</p>
+                                    <p class="font-extrabold text-slate-800">Fee: Rp45.500.000</p>
                                 </div>
                                 <div>
-                                    <p class="text-slate-500 mb-1">Potongan PPh 21 (Tenaga Ahli)</p>
-                                    <p class="font-medium">Tarif Progresif</p>
-                                    <p class="font-bold text-red-500 mt-0.5">-Rp7.300.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Potongan PPh 21</p>
+                                    <p class="font-extrabold text-red-500">-Rp3.412.500 <span class="text-[10px] text-slate-400 font-normal ml-1">(DPP 50%)</span></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-300 transition shadow-sm">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                        <!-- Doctor 2: Hendra -->
+                        <div onclick="openPayrollModal('HP')" class="p-5 md:p-6 bg-white border border-slate-200 rounded-xl hover:border-bca-blue hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                 <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 bg-blue-50 border border-blue-100 text-bca-blue rounded-full flex items-center justify-center font-extrabold text-base shadow-sm shrink-0">HP</div>
+                                    <div class="w-14 h-14 bg-blue-100 border border-blue-200 text-blue-700 rounded-full flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-blue-700 group-hover:text-white transition-colors shadow-sm">HP</div>
                                     <div>
-                                        <p class="text-sm font-bold text-slate-800">dr. Hendra P, Sp.BP-RE</p>
-                                        <div class="flex items-center space-x-2 mt-1">
-                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">NPWP: 72.112.***</span>
-                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">BCA: 4429****11</span>
+                                        <h3 class="text-base font-bold text-slate-800 group-hover:text-bca-blue transition-colors">dr. Hendra P, Sp.BP-RE</h3>
+                                        <div class="flex items-center space-x-2 mt-1.5">
+                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-1 rounded font-medium border border-slate-200">NPWP: 72.112.***</span>
+                                            <span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-1 rounded font-medium border border-slate-200">BCA: 4429****11</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-left md:text-right w-full md:w-auto">
-                                    <p class="text-xs text-slate-500">Net Transfer (Take Home Pay)</p>
-                                    <p class="text-lg font-extrabold text-emerald-600">Rp48.600.000</p>
+                                <div class="text-left md:text-right w-full md:w-auto mt-2 md:mt-0">
+                                    <p class="text-[11px] text-slate-500 font-medium mb-0.5">Net Transfer (Take Home Pay)</p>
+                                    <p class="text-2xl font-black text-emerald-600 tracking-tight">Rp60.236.000</p>
                                 </div>
                             </div>
-                            <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                            <div class="mt-5 pt-4 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
                                 <div>
-                                    <p class="text-slate-500 mb-1">Sumber Tindakan</p>
-                                    <p class="font-medium">8 Pasien (Bedah Estetika)</p>
-                                    <p class="font-bold mt-0.5">Gross: Rp81.400.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Sumber Tindakan</p>
+                                    <p class="font-extrabold text-slate-800">Gross: Rp81.400.000</p>
                                 </div>
                                 <div>
-                                    <p class="text-slate-500 mb-1">Skema Bagi Hasil (Profit Share)</p>
-                                    <p class="font-medium">Dokter 80% : Klinik 20%</p>
-                                    <p class="font-bold mt-0.5">Fee Dokter: Rp65.120.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Bagi Hasil (Dokter 80%)</p>
+                                    <p class="font-extrabold text-slate-800">Fee: Rp65.120.000</p>
                                 </div>
                                 <div>
-                                    <p class="text-slate-500 mb-1">Potongan PPh 21 (Tenaga Ahli)</p>
-                                    <p class="font-medium">Tarif Progresif</p>
-                                    <p class="font-bold text-red-500 mt-0.5">-Rp16.520.000</p>
+                                    <p class="text-slate-500 text-[11px] uppercase tracking-wider font-bold mb-1">Potongan PPh 21</p>
+                                    <p class="font-extrabold text-red-500">-Rp4.884.000 <span class="text-[10px] text-slate-400 font-normal ml-1">(DPP 50%)</span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <button onclick="executePayroll()" class="mt-8 w-full bg-slate-800 text-white font-bold py-4 rounded-xl hover:bg-slate-900 active:scale-95 transition shadow-lg flex justify-center items-center text-sm">
-                        <i class="fas fa-paper-plane mr-2"></i> Eksekusi Payroll & Auto-Potong Pajak
+                    
+                    <!-- Action Button -->
+                    <button onclick="executePayroll()" class="mt-8 w-full bg-slate-800 text-white font-bold py-4 rounded-xl hover:bg-slate-900 active:scale-95 transition-all shadow-lg flex justify-center items-center text-sm border border-slate-700">
+                        <i class="fas fa-paper-plane mr-2"></i> Eksekusi Payroll & Auto-Potong Pajak (API)
                     </button>
                 </div>
             </div>
-
+            
         </div>
 
         <!-- MOBILE BOTTOM NAVIGATION -->
@@ -432,7 +432,6 @@
                     <p class="font-bold text-base text-slate-800 mt-1" id="modal-item-name">-</p>
                     <p class="text-2xl font-extrabold text-bca-blue mt-1" id="modal-item-price">-</p>
                 </div>
-                
                 <div class="space-y-3 text-sm">
                     <div class="flex justify-between items-center pb-3 border-b border-slate-100" id="dp-row">
                         <span class="text-slate-600 font-medium flex items-center"><i class="fas fa-shield-alt text-emerald-500 mr-2"></i> Kewajiban DP (30%)</span>
@@ -447,11 +446,10 @@
                         <span class="font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">CASA 088-2938-xxx</span>
                     </div>
                 </div>
-
                 <div class="bg-orange-50 border border-orange-100 p-3 rounded-lg flex items-start space-x-2">
                     <i class="fas fa-info-circle text-orange-500 mt-0.5 text-xs"></i>
                     <p class="text-[10px] text-orange-800 leading-relaxed">
-                        Dengan menyetujui, Anda memberi kuasa debet rekening dan pemasangan <strong>IoT Remote Lock</strong> pada mesin. Sesuai S&K BCA.
+                        Dengan menyetujui, Anda memberi kuasa debet rekening dan pemasangan <strong>Fidusia Alat Medis</strong> pada mesin. Sesuai S&K BCA.
                     </p>
                 </div>
             </div>
@@ -492,20 +490,6 @@
                     </div>
                     <span class="font-bold text-emerald-600 text-sm">+Rp2.800.000</span>
                 </div>
-                <div class="bg-white p-3 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
-                    <div class="flex items-center space-x-3">
-                        <div class="bg-blue-50 text-bca-blue p-2 rounded-lg border border-blue-100"><i class="fas fa-credit-card"></i></div>
-                        <div>
-                            <p class="text-xs font-bold text-slate-800">Pasien: A.N. Clara</p>
-                            <p class="text-[10px] text-slate-500">Tindakan: HIFU Therapy</p>
-                            <p class="text-[9px] text-bca-blue font-bold mt-1 bg-blue-50 inline-block px-1.5 py-0.5 rounded border border-blue-100">Kartu Kredit BCA (Cicilan 12x)</p>
-                        </div>
-                    </div>
-                    <span class="font-bold text-emerald-600 text-sm">+Rp8.000.000</span>
-                </div>
-                 <div class="text-center pt-2">
-                     <p class="text-[10px] text-slate-400 italic">Data ditarik secara real-time untuk keperluan underwriting BCA.</p>
-                 </div>
             </div>
             <div class="p-4 bg-white border-t border-slate-100 shrink-0">
                 <button onclick="closeModal('edc')" class="w-full bg-slate-100 text-slate-700 font-bold py-2.5 rounded-xl text-sm hover:bg-slate-200 transition border border-slate-200">Tutup Log</button>
@@ -513,6 +497,79 @@
         </div>
     </div>
 
+    <!-- MODAL PAYROLL DETAIL (STEP-BY-STEP CALCULATION) -->
+    <div id="payroll-modal" class="fixed inset-0 bg-slate-900/70 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 transition-transform duration-300" id="payroll-modal-content">
+            
+            <!-- Elegant Header -->
+            <div class="bg-white p-5 border-b border-slate-100 flex justify-between items-center rounded-t-2xl">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-blue-50 text-bca-blue rounded-full flex items-center justify-center"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="font-extrabold text-slate-800 text-sm uppercase tracking-wider">Kalkulasi Pajak</h3>
+                </div>
+                <button onclick="closeModal('payroll')" class="text-slate-400 hover:text-red-500 transition-colors bg-slate-50 hover:bg-red-50 w-8 h-8 rounded-full flex items-center justify-center"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <!-- Body: Invoice Style -->
+            <div class="p-6 bg-slate-50/50">
+                <div class="text-center mb-6">
+                    <h4 class="font-black text-slate-800 text-xl" id="pm-name">dr. Nama Dokter</h4>
+                    <p class="text-[11px] text-slate-500 mt-1 font-medium bg-slate-100 inline-block px-3 py-1 rounded-full border border-slate-200">Sistem Bagi Hasil & PPh 21 Tenaga Ahli</p>
+                </div>
+
+                <!-- Clean Breakdown List -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-4 flex justify-between items-center border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <span class="text-slate-600 font-bold text-xs">1. Omzet Tindakan (Gross)</span>
+                        </div>
+                        <span class="font-black text-slate-800 text-sm" id="pm-gross">Rp0</span>
+                    </div>
+                    
+                    <div class="p-4 flex justify-between items-center border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                        <div>
+                            <span class="text-slate-600 font-bold text-xs">2. Hak Bagi Hasil Dokter</span>
+                            <p class="text-[10px] text-bca-blue font-bold mt-0.5 bg-blue-50 inline-block px-1.5 py-0.5 rounded" id="pm-share-formula">Gross x Porsi</p>
+                        </div>
+                        <span class="font-black text-bca-blue text-sm" id="pm-fee">Rp0</span>
+                    </div>
+
+                    <div class="p-4 flex justify-between items-center bg-orange-50/50 border-b border-orange-100 hover:bg-orange-50 transition-colors">
+                        <div>
+                            <span class="text-orange-800 font-bold text-xs">3. Dasar Pengenaan Pajak</span>
+                            <p class="text-[10px] text-orange-600 font-bold mt-0.5" id="pm-dpp-formula">Fee x 50%</p>
+                        </div>
+                        <span class="font-black text-orange-700 text-sm" id="pm-dpp">Rp0</span>
+                    </div>
+
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <div>
+                            <span class="text-slate-600 font-bold text-xs">4. Potongan PPh 21</span>
+                            <p class="text-[10px] text-red-500 font-bold mt-0.5 bg-red-50 inline-block px-1.5 py-0.5 rounded border border-red-100" id="pm-tax-formula">DPP x 15%</p>
+                        </div>
+                        <span class="font-black text-red-500 text-sm" id="pm-tax">-Rp0</span>
+                    </div>
+                </div>
+                
+                <!-- Highlighted Final Result -->
+                <div class="mt-4 bg-gradient-to-r from-slate-800 to-slate-900 p-5 rounded-xl shadow-lg text-white flex justify-between items-center border border-slate-700">
+                    <div>
+                        <span class="text-[10px] text-slate-300 font-bold uppercase tracking-widest block mb-1">Net Take Home Pay</span>
+                        <span class="text-[10px] text-slate-400 flex items-center"><i class="fas fa-check-circle text-emerald-400 mr-1.5"></i> Siap transfer via API</span>
+                    </div>
+                    <span class="text-2xl font-black text-emerald-400 tracking-tight" id="pm-thp">Rp0</span>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="p-4 bg-white border-t border-slate-100 flex space-x-3">
+                <button onclick="closeModal('payroll')" class="flex-1 bg-white border border-slate-200 text-slate-600 font-bold py-3.5 rounded-xl text-xs hover:bg-slate-50 hover:border-slate-300 transition-all">Kembali</button>
+                <button onclick="executeSinglePayroll()" class="flex-1 bg-bca-blue text-white font-bold py-3.5 rounded-xl text-xs hover:bg-blue-800 transition-all shadow-[0_4px_14px_rgba(0,82,156,0.3)]"><i class="fas fa-paper-plane mr-1.5"></i> Eksekusi Payroll</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed bottom-20 md:bottom-10 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-5 py-3 rounded-full text-xs font-bold shadow-2xl flex items-center space-x-2 transition-all duration-300 opacity-0 translate-y-10 z-50 pointer-events-none">
         <i class="fas fa-check-circle text-emerald-400 text-base"></i>
         <span id="toast-message">Notifikasi</span>
@@ -530,21 +587,7 @@
             { id: 3, category: 'equipment', company: 'PT InMode Medical', name: 'Morpheus8 System', desc: 'Teknologi Radio Frequency microneedling terdepan untuk anti-aging.', price: 1850000000, buyback: true },
             { id: 4, category: 'supply', company: 'PT Allergan Indo', name: 'Juvederm Dermal Fillers (Box of 50)', desc: 'Filler Hyaluronic Acid premium untuk contouring wajah.', price: 420000000, buyback: false },
             { id: 5, category: 'equipment', company: 'PT BTL Aesthetics', name: 'Emsculpt Neo Machine', desc: 'Alat body contouring non-invasif kombinasi RF dan HIFEM.', price: 2500000000, buyback: true },
-            { id: 6, category: 'equipment', company: 'PT Cynosure', name: 'PicoSure Pro Laser', desc: 'Sistem laser picosecond terbaik untuk tattoo removal dan revitalisasi kulit.', price: 2800000000, buyback: true },
-            { id: 7, category: 'supply', company: 'PT Galderma', name: 'Restylane Fillers Package', desc: 'Paket supply Restylane untuk klinik. TOP 90 hari via BCA.', price: 310000000, buyback: false },
-            { id: 8, category: 'equipment', company: 'PT Syneron Candela', name: 'PicoWay Laser', desc: 'Laser estetika untuk lesi pigmen dan peremajaan.', price: 2200000000, buyback: true },
-            { id: 9, category: 'supply', company: 'PT Croma Pharma', name: 'Sculptra Supply', desc: 'Biostimulator collagen cair. Supply kuartalan.', price: 250000000, buyback: false },
-            { id: 10, category: 'equipment', company: 'PT Lumenis', name: 'GentleMax Pro Plus', desc: 'Gold standard untuk laser hair removal dan treatment vascular.', price: 1950000000, buyback: true },
-            { id: 11, category: 'equipment', company: 'PT Fotona', name: 'Fotona 4D System', desc: 'Sistem laser non-invasif untuk facelifting.', price: 2300000000, buyback: true },
-            { id: 12, category: 'supply', company: 'PT Teoxane', name: 'Dysport Supply (100 units/box)', desc: 'Neuromodulator alternatif botox. Pengadaan instan.', price: 290000000, buyback: false },
-            { id: 13, category: 'equipment', company: 'PT Venus Concept', name: 'Venus Legacy', desc: 'Teknologi multi-polar RF untuk skin tightening.', price: 1500000000, buyback: true },
-            { id: 14, category: 'supply', company: 'PT Sinclair Pharma', name: 'MaiLi Fillers Collection', desc: 'Premium hyaluronic acid fillers. Pembayaran BCA Supply Chain.', price: 340000000, buyback: false },
-            { id: 15, category: 'equipment', company: 'PT Cutera', name: 'Pico Genesis', desc: 'Sistem laser picosecond untuk tekstur kulit.', price: 2000000000, buyback: true },
-            { id: 16, category: 'supply', company: 'PT IBSA', name: 'Teosyal RHA Range', desc: 'Resilient Hyaluronic Acid fillers untuk area dinamis.', price: 275000000, buyback: false },
-            { id: 17, category: 'equipment', company: 'PT Lutronic', name: 'Stellar M22 IPL', desc: 'Platform multi-aplikasi IPL untuk berbagai kondisi kulit.', price: 1700000000, buyback: true },
-            { id: 18, category: 'supply', company: 'PT Neauvia', name: 'Hydro Deluxe Supply', desc: 'Skin booster hyaluronic acid murni.', price: 190000000, buyback: false },
-            { id: 19, category: 'equipment', company: 'PT Ulthera', name: 'Ultherapy System', desc: 'Micro-focused ultrasound untuk lifting non-bedah.', price: 1650000000, buyback: true },
-            { id: 20, category: 'supply', company: 'PT Relife', name: 'Defisse Threads', desc: 'Benang PDO untuk thread lifting. Stok klinik bulanan.', price: 150000000, buyback: false }
+            { id: 6, category: 'equipment', company: 'PT Cynosure', name: 'PicoSure Pro Laser', desc: 'Sistem laser picosecond terbaik untuk tattoo removal dan revitalisasi kulit.', price: 2800000000, buyback: true }
         ];
 
         let currentCategory = 'all';
@@ -552,12 +595,6 @@
         function renderProducts(productsToRender) {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
-
-            if(productsToRender.length === 0) {
-                grid.innerHTML = '<div class="col-span-full py-10 text-center text-slate-500">Tidak ada produk yang ditemukan.</div>';
-                return;
-            }
-
             productsToRender.forEach(p => {
                 const isEquipment = p.category === 'equipment';
                 const tagColor = isEquipment ? 'text-blue-600' : 'text-orange-500';
@@ -628,7 +665,7 @@
         function switchTab(tabId) {
             document.getElementById('tab-dashboard').classList.add('hidden');
             document.getElementById('tab-procurement').classList.add('hidden');
-            document.getElementById('tab-payroll').classList.add('hidden');
+            document.getElementById('tab-payroll').classList.add('hidden'); // Ini yg tadi nge-bug krn ID nya lu hapus
             
             document.querySelectorAll('[id^="btn-desktop-"]').forEach(el => {
                 el.classList.remove('tab-active');
@@ -657,6 +694,7 @@
             document.getElementById('main-scroll').scrollTop = 0;
         }
 
+        // --- MODAL FUNCTIONS ---
         function openModal(itemName, price, type) {
             document.getElementById('modal-item-name').innerText = itemName;
             document.getElementById('modal-item-price').innerText = formatRupiah(price);
@@ -684,9 +722,57 @@
             setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); }, 10);
         }
 
+        // Data Payroll Dokter
+        const doctorData = {
+            'SA': {
+                name: 'dr. Sarah Amalia, Sp.DVE',
+                gross: 'Rp65.000.000',
+                shareFormula: '(Rp65.000.000 x 70%)',
+                fee: 'Rp45.500.000',
+                dppFormula: '(Rp45.500.000 x 50%)',
+                dpp: 'Rp22.750.000',
+                taxFormula: '(Rp22.750.000 x 15%)',
+                tax: '-Rp3.412.500',
+                thp: 'Rp42.087.500'
+            },
+            'HP': {
+                name: 'dr. Hendra P, Sp.BP-RE',
+                gross: 'Rp81.400.000',
+                shareFormula: '(Rp81.400.000 x 80%)',
+                fee: 'Rp65.120.000',
+                dppFormula: '(Rp65.120.000 x 50%)',
+                dpp: 'Rp32.560.000',
+                taxFormula: '(Rp32.560.000 x 15%)',
+                tax: '-Rp4.884.000',
+                thp: 'Rp60.236.000'
+            }
+        };
+
+        function openPayrollModal(doctorId) {
+            const data = doctorData[doctorId];
+            
+            document.getElementById('pm-name').innerText = data.name;
+            document.getElementById('pm-gross').innerText = data.gross;
+            document.getElementById('pm-share-formula').innerText = data.shareFormula;
+            document.getElementById('pm-fee').innerText = data.fee;
+            document.getElementById('pm-dpp-formula').innerText = data.dppFormula;
+            document.getElementById('pm-dpp').innerText = data.dpp;
+            document.getElementById('pm-tax-formula').innerText = data.taxFormula;
+            document.getElementById('pm-tax').innerText = data.tax;
+            document.getElementById('pm-thp').innerText = data.thp;
+
+            const modal = document.getElementById('payroll-modal');
+            const content = document.getElementById('payroll-modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); }, 10);
+        }
+
         function closeModal(type) {
-            const modalId = type === 'financing' ? 'financing-modal' : 'edc-modal';
-            const contentId = type === 'financing' ? 'modal-content' : 'edc-modal-content';
+            let modalId, contentId;
+            if (type === 'financing') { modalId = 'financing-modal'; contentId = 'modal-content'; }
+            else if (type === 'edc') { modalId = 'edc-modal'; contentId = 'edc-modal-content'; }
+            else if (type === 'payroll') { modalId = 'payroll-modal'; contentId = 'payroll-modal-content'; }
+            
             const modal = document.getElementById(modalId);
             const content = document.getElementById(contentId);
             
@@ -695,6 +781,7 @@
             setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
+        // --- ACTIONS ---
         function submitFinancing() {
             closeModal('financing');
             showToast('Smart Contract disetujui. Dana diteruskan ke Vendor secara instan.');
@@ -702,7 +789,14 @@
         }
 
         function executePayroll() {
-            showToast('Rp86.800.000 didistribusikan. PPh 21 disetor ke Kas Negara.');
+            showToast('Rp102.323.500 dieksekusi. PPh 21 disetor ke Kas Negara.');
+        }
+
+        function executeSinglePayroll() {
+            closeModal('payroll');
+            const docName = document.getElementById('pm-name').innerText;
+            const thpAmount = document.getElementById('pm-thp').innerText;
+            showToast(`${thpAmount} berhasil ditransfer ke rekening ${docName}.`);
         }
 
         function showToast(message) {
